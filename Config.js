@@ -3,24 +3,24 @@ const chalk = require('chalk');
 require('dotenv').config();
 
 //contact details
-global.ownernumber = [ process.env.OWNER_NUMBER || "919931122319"],
-global.ownername = process.env.OWNER_NAME || "💙𓆩‎✘AʏᴜSʜ✘𓆪_✰",
-global.ytname = "YT: AyushBotz.inc"
-global.socialm = "GitHub: Ayushpandey023"
+global.ownernumber = [ process.env.OWNER_NUMBER || "919634945456"],
+global.ownername = process.env.OWNER_NAME || "▪️▫️▪️ѕιℓєηт  χαямσηу🦚",
+global.ytname = "YT: silent.xarmony"
+global.socialm = "GitHub: Raone01"
 global.location = "Indian"
 
-global.botname = process.env.BOTNAME || "𝐌𝐀𝐑𝐈𝐀-𝐌𝐃",//name of the bot
+global.botname = process.env.BOTNAME || "▪️▫️▪️ѕιℓєηт  χαямσηу🦚",//name of the bot
 
 //sticker details
-global.stickername = process.env.STICKER || "💙𓆩‎✘AʏᴜSʜ✘𓆪_✰",
-global.packname = 'Sticker By'
-global.author = process.env.AUTHOR || "💙𓆩‎✘AʏᴜSʜ✘𓆪_✰",
+global.stickername = process.env.STICKER || "▪️▫️▪️ѕιℓєηт  χαямσηу🦚",
+global.packname = '▪️▫️▪️ѕιℓєηт  χαямσηу🦚'
+global.author = process.env.AUTHOR || "▪️▫️▪️ѕιℓєηт  χαямσηу🦚",
 //console view/theme
-global.themeemoji = '🧩'
-global.wm = "Ayush botz inc."
+global.themeemoji = '🖤'
+global.wm = "▪️▫️▪️ѕιℓєηт  χαямσηу🦚"
 
 //theme link
-global.link = 'https://whatsapp.com/channel/0029VaImo5ZG3R3qjKOdyr1I'
+global.link = 'https://chat.whatsapp.com/HJBmflv3NgYLhPH8FQFZb3'
 
 //custom prefix
 global.prefa = process.env.PREFIX,
@@ -39,15 +39,15 @@ global.autoread_status = false //auto view status/story
 
 //reply messages
 global.mess = {
-    done: '🍭 *Here you go, darling!* ',
-    prem: '🍭 *My darling, this feature is reserved for premium users only*',
-    admin: '🍭 *My darling, this feature is reserved for admins only*',
-    botAdmin: '🍭 *Darling, this feature can only be used when the bot is a group admin* ',
+    done: '🍭 *Here you go* ',
+    prem: '🍭 *This feature is reserved for premium users only*',
+    admin: '🍭 *This feature is reserved for admins only*',
+    botAdmin: '🍭 *This feature can only be used when the bot is a group admin* ',
     owner: '🍭 *My dearest, this feature is reserved for the owner only*',
-    group: '🍭 *Sweetheart, this feature is exclusively for groups*',
-    private: '🍭 *My love, this feature is exclusively for private chats*',
-    wait: '🍭 *Darling, in process...* ',    
-    error: '🍭 *Oh darling, there seems to be an error!*',
+    group: '🍭 *This feature is exclusively for groups*',
+    private: '🍭 *This feature is exclusively for private chats*',
+    wait: '🍭 *In process...* ',    
+    error: '🍭 *Oh!, there seems to be an error!*',
 }
 
 module.exports = {
