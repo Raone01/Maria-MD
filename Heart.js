@@ -78,8 +78,9 @@ module.exports = Maria = async (Maria, m, msg, chatUpdate, store) => {
         var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectreply.selectedRowId : (m.mtype == 'templateButtonreplyMessage') ? m.message.templateButtonreplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectreply.selectedRowId || m.text) : ''
         var budy = (typeof m.text == 'string' ? m.text : '')
         
-        const prefix = global.prefa
+        const prefix = global.prefa || "."
         const isCmd = body.startsWith(prefix)
+        if (!isCmd || !body.startsWith(prefix)) return;
         const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
         const args = body.trim().split(/ +/).slice(1)
         const full_args = body.replace(command, '').slice(1).trim()
@@ -177,21 +178,7 @@ isForwarded: true,
 { quoted: m})
 }
 
-async function loading () {
-var Ayushlod = [
-"《 ▒▒▒▒▒▒▒▒▒▒▒》10%",
-"《 ████▒▒▒▒▒▒▒▒》30%",
-"《 ███████▒▒▒▒▒》50%",
-"《 ██████████▒▒》80%",
-"《 ████████████》100%",
-"Done ✅️"
-]
-let { key } = await Maria.sendMessage(from, {text: 'ʟᴏᴀᴅɪɴɢ...'})
-
-for (let i = 0; i < Ayushlod.length; i++) {
-await Maria.sendMessage(from, {text: Ayushlod[i], edit: key });
-}
-}
+//////////
 
 async function obfus(query) {
     return new Promise((resolve, reject) => {
@@ -1797,6 +1784,169 @@ case 'truth':
                            buffer = await getBuffer(`https://graph.org/file/8dd92e67cd4019b092f53.jpg`)
                            Maria.sendMessage(from, { image: buffer, caption: '*You have chosen Truth*\n'+ Mariatruthww }, {quoted:m})
                            break;
+case 'insult': {
+	if (!m.isGroup) return reply(mess.group)
+	const insults = [
+  "You're as useless as the 'ueue' in 'queue'.",
+  "I'm jealous of all the people who haven't met you.",
+  "You bring everyone a lot of joy... when you leave the room.",
+  "If laughter is the best medicine, your face must be curing the world.",
+  "I'd like to see things from your point of view, but I can't seem to get my head that far up my butt.",
+  "If I wanted to kill myself, I'd climb your ego and jump to your IQ.",
+  "You're not stupid; you just have bad luck when thinking.",
+  "I'd slap you, but that would be animal abuse.",
+  "If you were any slower, you’d be going backward.",
+  "You must have been born on a highway because that's where most accidents happen.",
+  "I'd insult you, but then I'd have to explain it afterward.",
+  "You're not dumb. You just have bad luck thinking.",
+  "You're like a cloud. When you disappear, it's a beautiful day.",
+  "I bet your brain feels as good as new, seeing that you never use it.",
+  "You're the reason the gene pool needs a lifeguard.",
+  "It looks like your face caught on fire, and someone tried to put it out with a fork.",
+  "I'm sorry, I didn't mean to give you the impression that I actually cared about your opinion.",
+  "If brains were dynamite, you wouldn’t have enough to blow your nose.",
+  "If you were twice as smart, you'd still be stupid.",
+  "I'm not insulting you; I'm describing you.",
+  "I'm not saying you're stupid; I'm just saying you have bad luck when it comes to thinking.",
+  "The only way you'll ever get laid is if you crawl up a chicken's butt and wait.",
+  "You must have been born at a low altitude because your brain seems to lack oxygen.",
+  "You're not just a clown; you're the entire circus.",
+  "If you were any more inbred, you'd be a sandwich.",
+  "I'd agree with you, but then we'd both be wrong.",
+  "I'd call you a tool, but even they serve a purpose.",
+  "You're like Monday mornings - nobody likes you.",
+  "If ignorance is bliss, you must be the happiest person on Earth.",
+  "You're not the dumbest person in the world, but you'd better hope they don't die.",
+  
+];
+
+
+function getRandomInsult() {
+  return insults[Math.floor(Math.random() * insults.length)];
+}
+
+  const randomInsult = getRandomInsult();
+  reply(randomInsult);
+}
+break;
+
+
+case 'flirt': {
+	if (!m.isGroup) return reply(mess.group)
+	const flirtLines = [
+  "Are you a magician? Because whenever I look at you, everyone else disappears.",
+  "Do you have a map? Because I just got lost in your eyes.",
+  "Are you made of copper and tellurium? Because you're Cu-Te.",
+  "Are you a camera? Because every time I look at you, I smile.",
+  "Is it hot in here or is it just you?",
+  "Do you believe in love at first sight, or should I walk by again?",
+  "Excuse me, but I think the stars are shining a little brighter tonight because you're around.",
+  "If beauty were a crime, you'd be serving a life sentence.",
+  "Do you have a Band-Aid? Because I just scraped my knee falling for you.",
+  "Do you have a name, or can I call you mine?",
+  "Do you believe in fate? Because I think we were meant to meet.",
+  "If you were a vegetable, you'd be a cute-cumber.",
+  "Do you have a sunburn, or are you always this hot?",
+  "Do you have a map? I keep getting lost in your eyes.",
+  "If you were a fruit, you'd be a fineapple.",
+  "If kisses were snowflakes, I'd send you a blizzard.",
+  "Can I follow you home? Cause my parents always told me to follow my dreams.",
+  "Do you have a name or can I call you mine?",
+  "Are you a parking ticket? Because you've got FINE written all over you.",
+  "Do you have a name or can I call you mine?",
+  "If looks could kill, you'd be a weapon of mass destruction.",
+  "You must be made of copper and tellurium because you're Cu-Te.",
+  "Do you have a name, or can I call you mine?",
+  "Are you a time traveler? Because I can see you in my future.",
+  "Is there an airport nearby or is it my heart taking off?",
+  "Are you a Wi-Fi signal? Because I'm really feeling a connection.",
+  "I must be a snowflake because I've fallen for you.",
+  "Do you believe in love at first sight, or should I walk by again?",
+  "I'm not a photographer, but I can definitely picture us together.",
+  "Do you have a name, or can I call you mine?",
+  "Do you have a name, or can I call you mine?",
+];
+function getRandomFlirtLine() {
+  return flirtLines[Math.floor(Math.random() * flirtLines.length)];
+}
+  const randomFlirtLine = getRandomFlirtLine();
+  reply(randomFlirtLine);
+}
+break;
+  
+
+case 'shayari': {
+	if (!m.isGroup) return reply(mess.group)
+	const shayariLines = [
+  "Dil se roya humne, aankhon se nikla hai pyaar,\nZakhm gehra humne khaya, dil se hai yaar.\n",
+  "Khuda ke bando pe naaz hai insaan ko,\nApne hi hatho se khud ne ki hai tabaahi.\n",
+  "Mohabbat ek aisi bheed hai,\nJisme har ek dil hai tanha.\n",
+  "Dil ko chhune wale shabd kya kamaal ke hote hain,\nUnki misaalein di jaati hain, aashiq to sirf yaad kiye jaate hain.\n",
+  "Tere bina jeena kya, tere sang mar jaana hai,\nTeri baahon mein kho jaana, yahi toh pyaar ka asli matlab hai.\n",
+  "Mohabbat ka izhaar karne mein waqt toh lagta hai,\nPar sachai aur dil se nikle alfaz kabhi nahin bhoolte.\n",
+  "Har raat rote hain hum, har subah umeed se guzar jaati hai,\nKuchh rishte aise bhi hote hain, jinke saath guzarti zindagi bhi yaadon mein dafan ho jaati hai.\n",
+  "Rishte toh khoon se bhi gehre hote hain,\nPar woh rishte jo dil se jud jaate hain, unka toh koi saani nahin hota.\n",
+  "Mohabbat mein zindagi ko pyaari kar dena,\nAur pyaar mein zindagi ko jeena seekh lena,\nYahi toh hai asli mohabbat ka matlab.\n",
+  
+];
+
+
+function getRandomShayariLine() {
+  return shayariLines[Math.floor(Math.random() * shayariLines.length)];
+}
+  const randomShayariLine = getRandomShayariLine();
+  reply(randomShayariLine);
+}
+break;
+
+
+
+
+case 'joke': {
+	if (!m.isGroup) return reply(mess.group)
+	
+	const jokes = [
+  "Why don't scientists trust atoms? Because they make up everything!",
+  "What do you call fake spaghetti? An impasta!",
+  "Why did the scarecrow win an award? Because he was outstanding in his field!",
+  "Why couldn't the bicycle stand up by itself? It was two-tired!",
+  "I told my wife she was drawing her eyebrows too high. She looked surprised!",
+  "What did one ocean say to the other ocean? Nothing, they just waved!",
+  "Why did the tomato turn red? Because it saw the salad dressing!",
+  "What do you call cheese that isn't yours? Nacho cheese!",
+  "Why did the math book look sad? Because it had too many problems!",
+  "What do you get when you cross a snowman and a vampire? Frostbite!",
+  "Why don't skeletons fight each other? They don't have the guts!",
+  "What did one plate say to the other plate? Dinner's on me!",
+  "Why did the golfer bring two pairs of pants? In case he got a hole in one!",
+  "Why couldn't the leopard play hide and seek? Because he was always spotted!",
+  "Why did the man put his money in the blender? He wanted to make liquid assets!",
+  "Why don't eggs tell jokes? Because they'd crack each other up!",
+  "What do you call a bear with no teeth? A gummy bear!",
+  "What did one hat say to the other hat? Stay here, I'm going on ahead!",
+  "Why did the cookie go to the doctor? Because it was feeling crumbly!",
+  "What do you call a fish wearing a bowtie? Sophis-fish-ticated!",
+  "What do you get when you cross a snowman and a dog? Frostbite!",
+  "Why did the picture go to jail? Because it was framed!",
+  "Why did the scarecrow win an award? Because he was outstanding in his field!",
+  "Why did the tomato turn red? Because it saw the salad dressing!",
+  "What did one ocean say to the other ocean? Nothing, they just waved!",
+  "Why did the math book look sad? Because it had too many problems!",
+  "Why don't scientists trust atoms? Because they make up everything!",
+  "What did one plate say to the other plate? Dinner's on me!",
+  "Why couldn't the bicycle stand up by itself? It was two-tired!",
+  "What did one hat say to the other hat? Stay here, I'm going on ahead!",
+  "Why did the golfer bring two pairs of pants? In case he got a hole in one!",
+];
+
+function getRandomJoke() {
+  return jokes[Math.floor(Math.random() * jokes.length)];
+}
+  const randomJoke = getRandomJoke();
+  reply(randomJoke);
+}
+break;
+                         
                            
   case 'menu': case 'help': case 'h': 
       const txt = `╭─「 *Konichiwa* 」
@@ -1884,6 +2034,10 @@ ${readmore}
 │⊳🎟️ ${prefix}dare
 │⊳🎟️ ${prefix}couple 
 │⊳🎟️ ${prefix}Ship
+│⊳🎟️ ${prefix}insult 
+│⊳🎟️ ${prefix}flirt
+│⊳🎟️ ${prefix}shayari
+│⊳🎟️ ${prefix}joke
 │⊳🎟️ ${prefix}soulmate
 │⊳🎟️ ${prefix}checkdeath
 │⊳🎟️ ${prefix}uglycheck
@@ -2305,7 +2459,7 @@ case 'hidetag': {
 
 			    
          case 'pinterest':
-      case 'pin': {
+      case 'img': {
       if (!args.join(" ")) return reply(`🧩${pushname}Please provide a search term!`);
         reply(mess.waiting)
         let { pinterest } = require('./Gallery/lib/scraper');

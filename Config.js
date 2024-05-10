@@ -23,7 +23,7 @@ global.wm = "▪️▫️▪️ѕιℓєηт  χαямσηу🦚"
 global.link = 'https://chat.whatsapp.com/HJBmflv3NgYLhPH8FQFZb3'
 
 //custom prefix
-global.prefa = process.env.PREFIX,
+global.prefa = process.env.PREFIX || ".",
 
 //false=disable and true=enable
 global.welcome = process.env.WELCOME || "false", //auto welcome
